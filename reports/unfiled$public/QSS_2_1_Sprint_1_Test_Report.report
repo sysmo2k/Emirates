@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <block>
+        <blockInfo>
+            <blockId>B0</blockId>
+            <joinTable>fkx</joinTable>
+        </blockInfo>
+        <columns>
+            <field>CUST_NAME</field>
+        </columns>
+        <columns>
+            <field>copado__Test_Script__c.copado__Sprint__c</field>
+        </columns>
+        <columns>
+            <field>copado__Test_Script__c.Selenium_Test_Case__c</field>
+        </columns>
+        <columns>
+            <field>copado__Test_Script__c.copado__Status__c</field>
+        </columns>
+        <filter>
+            <criteriaItems>
+                <column>copado__Test_Script__c.copado__Sprint__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Sprint 1</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Test Scripts with User Story block 1</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>CustomEntity$copado__Test_Script__c@copado__Test_Script__c.copado__User_Story__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>CUST_CREATED_DATE</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <block>
+        <blockInfo>
+            <blockId>B1</blockId>
+            <joinTable>fkx</joinTable>
+        </blockInfo>
+        <columns>
+            <field>CUST_NAME</field>
+        </columns>
+        <columns>
+            <field>copado__Team_Dependency__c.copado__Child_User_Story_Status__c</field>
+        </columns>
+        <columns>
+            <field>copado__Team_Dependency__c.copado__Deliverable__c</field>
+        </columns>
+        <columns>
+            <field>FK_$copado__User_Story__c.copado__Sprint__c</field>
+        </columns>
+        <format>Summary</format>
+        <name>User Story Dependencies with Par block 1</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>CustomEntity$copado__Team_Dependency__c@copado__Team_Dependency__c.copado__Provider_User_Story__c</reportType>
+        <scope>user</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>copado__Team_Dependency__c.copado__Needed_by_Date__c</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>fkx</joinTable>
+    </blockInfo>
+    <description>This report gives the overall Sprint 1 status</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$copado__User_Story__c.copado__Progress__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>QSS 2.1 Sprint 1 Test Report</name>
+    <reportType>CustomEntity$copado__Test_Script__c@copado__Test_Script__c.copado__User_Story__c</reportType>
+    <showDetails>true</showDetails>
+</Report>
