@@ -154,6 +154,17 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>All_Miles__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;Total Miles is now &quot;  &amp;  Text(Total_Miles__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>All Miles</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contact__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -171,6 +182,19 @@
         <externalId>false</externalId>
         <label>Gold Bonus</label>
         <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Miles_Diff__c</fullName>
+        <externalId>false</externalId>
+        <formula>Miles__c -  Old_Miles__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Miles Diff</label>
+        <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
         <trackTrending>false</trackTrending>
@@ -197,6 +221,17 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_Miles__c</fullName>
+        <externalId>false</externalId>
+        <label>Old Miles</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
