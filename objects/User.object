@@ -207,6 +207,41 @@
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>Copado_Deploy_to_Orgs__c</fullName>
+        <externalId>false</externalId>
+        <label>Copado Deploy to Orgs</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TestDev1</fullName>
+                    <default>false</default>
+                    <label>TestDev1</label>
+                </value>
+                <value>
+                    <fullName>TestDev2</fullName>
+                    <default>false</default>
+                    <label>TestDev2</label>
+                </value>
+                <value>
+                    <fullName>TestQA</fullName>
+                    <default>false</default>
+                    <label>TestQA</label>
+                </value>
+                <value>
+                    <fullName>TestProduction</fullName>
+                    <default>false</default>
+                    <label>TestProduction</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>ManagerId</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <type>Hierarchy</type>
