@@ -1,4 +1,21 @@
-trigger UserStoryTRG on copado__User_Story__c (before insert,before update) {
+//User Story trigger to filter User Storys based on Multi Select Picklist field in User Object - Copado_Deploy_to_Orgs__c
+//Look at Pipeline and all Pipeline Connections
+//Collect Source and Destination for Each
+//Populare User Story with Destination Org based on Source and Pipeline
+//Compare Copado_Deploy_to_Orgs__c field and see if it contains Destination Org
+//If Yes - Set CanDeploytoOrg__c to true else set to false - Default
+//This is then used in a simple Validation rule which will stop the Submitting of User Story if they can't deploy to Org
+//20th Jan 2022
+//MOC
+//martin_oconnell@epam.com
+//Please Amend Trigger to tie into any Client Trigger Framework by adding the Handlder
+//User Story trigger does not need to run on Insert - as its impossible to create a US and Commit without at least 1 Insert and 1 Subsequent Update
+
+trigger UserStoryTRG on copado__User_Story__c (before update) {
+    
+    //First we need to check if 2 fields have changed
+    //
+    
     
     List<copado__User_Story__c> myOrgs = New List<copado__User_Story__c>();
     Map<String,String> ListofOrgs = new Map<String,String>();
@@ -19,18 +36,7 @@ trigger UserStoryTRG on copado__User_Story__c (before insert,before update) {
     {
         MapofUsers.put(myus.id,myus.Copado_Deploy_to_Orgs__c);
     }
-    
-    
-    system.debug('ListofOrgs.keyset():' + ListofOrgs.keyset());
-    system.debug('ListofOrgs.values() :'+ ListofOrgs.values());
-    system.debug('ListofOrgsNames.keyset():' + ListofOrgsNames.keyset());
-    system.debug('ListofOrgsNames.values() :'+ ListofOrgsNames.values());
-    system.debug('MapofUsers.keyset() :' + MapofUsers.keyset());
-    system.debug('MapofUsers.values() :' + MapofUsers.values());
 	
-    
-    
-
     //For each Source Org - Retrieve the Destination Org
     for (copado__User_Story__c ms :Trigger.New)
     {
@@ -58,10 +64,6 @@ trigger UserStoryTRG on copado__User_Story__c (before insert,before update) {
                 ms.CanDeploytoOrg__c = false;
             }    
         
-        
-        
-        system.debug('ms.Source_Org__c :' + ms.Source_Org__c);
-        system.debug('ms.Destination_Org_Name__c :' + ms.Destination_Org_Name__c);
     }
     
 

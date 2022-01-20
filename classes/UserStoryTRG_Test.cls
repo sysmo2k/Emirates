@@ -62,31 +62,37 @@ public class UserStoryTRG_Test {
         
         insert plct2;
         
+        String AliasString = 'stand';
+        String EmailString = 'standarduser@test.com';
+        String TimeZoneSidKeyString = 'America/Los_Angeles';
+        String LocaleSidKeyString ='en_US';
+        String EmailEncodingKeyString ='UTF-8';
+        
         Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator'];
         User CanDeployuser = new User(
                         ProfileId = p.Id,
-                        Alias = 'stand',
-                        Email ='standarduser@test.com',
+                        Alias = AliasString,
+                        Email = EmailString,
                         LastName = 'CopadoTest',
                         UserName = 'CopadoTest@test.com',
-                        TimeZoneSidKey='America/Los_Angeles',
-                        LocaleSidKey='en_US',
-                        EmailEncodingKey='UTF-8',
-                        LanguageLocaleKey='en_US',
+                        TimeZoneSidKey=TimeZoneSidKeyString,
+                        LocaleSidKey=LocaleSidKeyString,
+                        EmailEncodingKey=EmailEncodingKeyString,
+                        LanguageLocaleKey=LocaleSidKeyString,
             			Copado_Deploy_to_Orgs__c='TestDev1;TestDev2;TestQA'
         				);
             insert CanDeployuser;
         
                 User NoDeployuser = new User(
                         ProfileId = p.Id,
-                        Alias = 'stand',
-                        Email ='standarduser@test.com',
+                        Alias = AliasString,
+                        Email = EmailString,
                         LastName = 'NoCopadoTest',
                         UserName = 'NoCopadoTest@test.com',
-                        TimeZoneSidKey='America/Los_Angeles',
-                        LocaleSidKey='en_US',
-                        EmailEncodingKey='UTF-8',
-                        LanguageLocaleKey='en_US',
+                        TimeZoneSidKey=TimeZoneSidKeyString,
+                        LocaleSidKey=LocaleSidKeyString,
+                        EmailEncodingKey=EmailEncodingKeyString,
+                        LanguageLocaleKey=LocaleSidKeyString,
             			Copado_Deploy_to_Orgs__c='TestDev1;TestDev2'
         				);
             insert NoDeployuser;
@@ -126,7 +132,7 @@ public class UserStoryTRG_Test {
     @isTest static void testMethod1()
     {
         List<copado__Deployment_Flow_Step__c> plc = new List<copado__Deployment_Flow_Step__c>([select id from copado__Deployment_Flow_Step__c]);
-        system.assertEquals(plc.size(), 2);
+        system.assertEquals(plc.size(), 2,'Pipeline Connections Not Created');
         
         List<User> myuser = new List<User>([select Copado_Deploy_to_Orgs__c from User where UserName='CopadoTest@test.com']);
         system.assertEquals(myuser[0].Copado_Deploy_to_Orgs__c, 'TestDev1;TestDev2;TestQA', 'Deploy to Orgs not Set Correctly on User');
