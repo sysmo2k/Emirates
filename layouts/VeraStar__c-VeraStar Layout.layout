@@ -26,6 +26,10 @@
                 <behavior>Edit</behavior>
                 <field>Qty__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CopadoExtID__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
