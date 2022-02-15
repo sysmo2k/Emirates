@@ -11,6 +11,16 @@
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Old_Miles</fullName>
+        <field>Old_Miles__c</field>
+        <formula>PRIORVALUE( Miles__c )</formula>
+        <name>Update Old Miles</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Old_Programme</fullName>
         <field>Old_Programme__c</field>
         <formula>Text(PRIORVALUE( Programme__c ))</formula>
@@ -20,6 +30,16 @@
         <protected>false</protected>
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
+    <rules>
+        <fullName>Check Miles Changes</fullName>
+        <actions>
+            <name>Update_Old_Miles</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(Miles__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Update Programme</fullName>
         <actions>
