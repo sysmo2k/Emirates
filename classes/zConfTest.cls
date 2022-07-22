@@ -6,7 +6,8 @@
 @istest
 public class zConfTest {
     
-    @isTest static void Test1Test()
+    @isTest 
+    private static void Test1Test()
     {
         zConference__c t3 = new zConference__c();
         t3.Product__c = 'Burger';
